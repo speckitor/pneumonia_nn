@@ -53,4 +53,4 @@ model.fit(train_data, validation_data=validation_data, epochs=3)
 
 model.evaluate(test_data)
 
-#model.save("assets/model_files")
+model.save("assets/model_files")
