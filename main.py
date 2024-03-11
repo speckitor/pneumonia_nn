@@ -8,7 +8,7 @@ def main(page: ft.Page):
     page.window_height = 350
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     def pick_file_and_predict(e: ft.FilePickerResultEvent):
-        model = tf.keras.models.load_model("assets/model_files/")
+        model = tf.keras.models.load_model(r"assets\model_files\model.h5")
         prediction.value = ""
         result_file = e.files
         path_to_image = result_file[0].path
@@ -36,7 +36,7 @@ def main(page: ft.Page):
     
     pick_files_dialog = ft.FilePicker(on_result=pick_file_and_predict)
     selected_files = ft.Text("no_image_imported")
-    image = ft.Image(src="assets/no_image.png",width=100,height=100,fit=ft.ImageFit.CONTAIN)
+    image = ft.Image(src=r"assets\no_image.png",width=100,height=100,fit=ft.ImageFit.CONTAIN)
     prediction = ft.Text()
     
     page.overlay.append(pick_files_dialog)

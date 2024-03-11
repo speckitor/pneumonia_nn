@@ -2,15 +2,15 @@ import tensorflow as tf
 import os
 os.environ["TF_CPP_MIN_LOG_LEVEL"]="2"
 #используйте 2 строчки ниже, если у вас видеокарта от nvidia
-physical_devices = tf.config.list_physical_devices('GPU')
-tf.config.experimental.set_memory_growth(physical_devices[0], True)
+#physical_devices = tf.config.list_physical_devices('GPU')
+#tf.config.experimental.set_memory_growth(physical_devices[0], True)
 batch_size = 16
 img_size = (512, 512)
 
 # Напишите свой путь до датасета в переменных ниже
-val_dir = "/home/spectr/Downloads/chest_xray/test" 
-train_dir = "/home/spectr/Downloads/chest_xray/train"
-test_dir="/home/spectr/Downloads/chest_xray/val"
+val_dir = r"C:\Users\spect\Downloads\chest_xray\train"
+train_dir = r"C:\Users\spect\Downloads\chest_xray\train"
+test_dir=r"C:\Users\spect\Downloads\chest_xray\val"
 
 train_data = tf.keras.utils.image_dataset_from_directory(
     train_dir,
@@ -53,4 +53,4 @@ model.fit(train_data, validation_data=validation_data, epochs=3)
 
 model.evaluate(test_data)
 
-model.save("assets/model_files")
+model.save("assets/model_files/model.h5")
