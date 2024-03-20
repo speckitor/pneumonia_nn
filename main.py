@@ -7,6 +7,7 @@ def main(page: ft.Page):
     page.window_width = 700
     page.window_height = 350
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
+
     def pick_file_and_predict(e: ft.FilePickerResultEvent):
         model = tf.keras.models.load_model("assets/model_files/")
         prediction.value = ""
